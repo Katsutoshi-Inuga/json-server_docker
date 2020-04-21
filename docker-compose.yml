@@ -1,0 +1,11 @@
+version: '3'
+services:
+  json-server:
+    build: ./json-server
+    container_name: test-json-server
+    ports:
+#      - '80:3000'
+      - '80:80'
+    volumes:
+      - ./json-server/db.json:/data/db.json
+    command: json-server --watch db.json --host 0.0.0.0 --port 80
